@@ -1,5 +1,6 @@
 import QtQuick 2.5
 import QtQuick.Window 2.2
+import QtQuick.Controls 1.4
 
 Window {
     visible: true
@@ -7,15 +8,22 @@ Window {
     height: 480
     title: qsTr("Hello World")
 
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            Qt.quit();
+    Row {
+        spacing: 50
+
+        Button {
+            text: "push"
+            onClicked: database.pushRecord();
+        }
+        Button {
+            text: "pull"
+            onClicked: database.pullRecord();
+        }
+        Button {
+            text: "delete"
+            onClicked: database.removeRecord(1);
         }
     }
 
-    Text {
-        text: qsTr("Hello World")
-        anchors.centerIn: parent
-    }
+
 }

@@ -2,10 +2,13 @@
 #define SQLITEBASE_H
 
 #include <QObject>
-#include <QtSql/QSqlDatabase>
+#include <QSql>
 #include <QSqlQuery>
-#include <QFile>
 #include <QSqlError>
+#include <QSqlDatabase>
+#include <QFile>
+#include <QDate>
+#include <QDebug>
 
 
 class sqlitebase : public QObject
@@ -18,11 +21,12 @@ signals:
 
 public slots:
     void pushRecord();
+    void inserIntoTable();
     void pullRecord();
-    void removeRecord();
+    void removeRecord(const int);
 private:
     QSqlDatabase db;
-    QSqlQuery query;
+
 };
 
 #endif // SQLITEBASE_H
