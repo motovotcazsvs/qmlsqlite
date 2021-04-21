@@ -48,22 +48,19 @@ void sqlitebase::pushRecord()
     query.bindValue(":bar_code", ds11);
     query.exec();
 */
-    for(int i = 1; i <= 5000; i++){
-        //работает
-        QSqlQuery Qr;
-        QString SQL=QString("INSERT INTO TABLEMEDICALMEASUREMENTS VALUES (%1,'%2','%3',%4,%5,%6,'%7','%8','%9','%10','%11');")
-        .arg(i).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51);
-        Qr.exec(SQL);
-    }
+
+    //работает
+    QSqlQuery Qr;
+    QString SQL=QString("INSERT INTO TABLEMEDICALMEASUREMENTS VALUES (%1,'%2','%3',%4,%5,%6,'%7','%8','%9','%10','%11');")
+    .arg(1).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51);
+    Qr.exec(SQL);
     db.close();
 }
 
 
 void sqlitebase::pullRecord()
 {
-
     db.open();
-
     QSqlQuery query;
     //QString id, number_per_day, probe_number, date_year, date_month, date_day, time_hour, time_minute, gl, lc, bar_code;
     query.exec("SELECT ID, NUMBERPERDAY, PROBENUMBER, DATEYEAR, DATEMONTH, DATEDAY, TIMEHOUR, TIMEMINUTE, GL, LC, BARCODE FROM TABLEMEDICALMEASUREMENTS");
@@ -96,9 +93,6 @@ void sqlitebase::removeRecord(const int id)
     query.bindValue(":ID", id);
 
     // Выполняем удаление
-    if(!query.exec()){
-        qDebug() << "error delete row " << "TABLEMEDICALMEASUREMENTS";
-        qDebug() << query.lastError().text();
-    }
+    query.exec();
     db.close();
 }
