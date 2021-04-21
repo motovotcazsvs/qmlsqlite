@@ -4,7 +4,8 @@ QT += qml quick sql widgets
 CONFIG += c++11
 
 SOURCES += main.cpp \
-    sqlitebase.cpp
+    sqlitebase.cpp \
+    listmodel.cpp
 
 RESOURCES += qml.qrc
 
@@ -15,4 +16,5 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 HEADERS += \
-    sqlitebase.h
+    sqlitebase.h \
+    listmodel.h

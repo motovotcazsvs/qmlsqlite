@@ -4,7 +4,7 @@ sqlitebase::sqlitebase(QObject *parent) : QObject(parent)
 {
 
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("D:/QtProject/qmlsqlite/MedicalMeasurements1.db3");//для windows
+    db.setDatabaseName("D:/QtProject/qmlsqlite/MedicalMeasurements.db3");//для windows
     //db.setDatabaseName("C:/QT_PROJECTS/untitled5/Compare.db3");//для малинки
     //db.open();
 }
@@ -52,7 +52,7 @@ void sqlitebase::pushRecord()
     //работает
     QSqlQuery Qr;
     QString SQL=QString("INSERT INTO TABLEMEDICALMEASUREMENTS VALUES (%1,'%2','%3',%4,%5,%6,'%7','%8','%9','%10','%11');")
-    .arg(1).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51);
+    .arg(2).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51);
     Qr.exec(SQL);
     db.close();
 }
