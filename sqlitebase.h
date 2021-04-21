@@ -21,7 +21,6 @@ signals:
 
 public slots:
     void pushRecord();
-    void inserIntoTable();
     void pullRecord();
     void removeRecord(const int);
 private:

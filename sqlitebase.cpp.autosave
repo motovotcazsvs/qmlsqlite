@@ -48,13 +48,12 @@ void sqlitebase::pushRecord()
     query.bindValue(":bar_code", ds11);
     query.exec();
 */
-    for(int i = 1; i <= 5000; i++){
-        //работает
-        QSqlQuery Qr;
-        QString SQL=QString("INSERT INTO TABLEMEDICALMEASUREMENTS VALUES (%1,'%2','%3',%4,%5,%6,'%7','%8','%9','%10','%11');")
-        .arg(i).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51);
-        Qr.exec(SQL);
-    }
+
+    //работает
+    QSqlQuery Qr;
+    QString SQL=QString("INSERT INTO TABLEMEDICALMEASUREMENTS VALUES (%1,'%2','%3',%4,%5,%6,'%7','%8','%9','%10','%11');")
+    .arg(i).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51).arg(51);
+    Qr.exec(SQL);
     db.close();
 }
 
